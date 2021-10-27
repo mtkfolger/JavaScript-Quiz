@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+
+<!-- Header includes title of site, plus links to stylesheets (custom CSS if necessary) and
+Bootstrap stylesheet, and links to the google fonts I choose to utilize for the site-->
+<header>
+    <title>JavaScript Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</header>
+<body>
+<!-- Main elements of the site-->
+<main>
+  <div class="timer">Time: <span id="time">0</span></div>
+  <div class="wrapper">
+    <div id="start-screen" class="start">
+      <h1>Super Cool Coding Trivia</h1>
+      <p>
+        Try to answer the following questions within the time
+        limit. Keep in mind that incorrect answers will be result in loss of time!
+      </p>
+      <button id="start">Start Quiz</button>
+    </div>
+    <div id="questions" class="hide">
+      <h2 id="question-title"></h2>
+      <div id="choices" class="choices"></div>
+    </div>
+
+  </main>
+        <!-- link to JS file-->
+        <script src="script.js"></script>
+    </body>

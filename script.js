@@ -69,10 +69,11 @@ var endScreen = document.querySelector("#end-screen");
 // Defined time interval to keep quiz state
 function timer() {
   displayTime--;
-  timerElement.textContent = displayTime;
-  if (displayTime == 0) {
+  timerElement.textContent = displayTime++;
+  if (displayTime === 0 || displayTime < 0) {
+    timerElement.textContent = displayTime;
     console.log("Quiz is now over!")
-
+    quizEnd();
     //fire the endQuiz function here
   }
 }
@@ -112,6 +113,12 @@ function cycleQuestions() {
 function validateAnswer() {
   if (this.value !== quizQuestions[questionsIndex].answer) {
     console.log("Wrong")
+    displayTime = displayTime-15;
+    
+    if (displayTime< 0) {
+      displayTime = 0;
+    }
+    timerElement.textContent=displayTime;
   } else {
   
     console.log("True")
@@ -129,7 +136,13 @@ function validateAnswer() {
 }
 
 function quizEnd(){
+  clearInterval(timeInterval);
   console.log("This quiz is over!");
+  questionsElement.setAttribute("class", "hide");
+  endScreen.removeAttribute("class");
+  // show user's final score
+  var finalScoreEl = document.getElementById("final-score");
+  finalScoreEl.textContent = displayTime;
 };
 //Cycle a new question if still haven't answered all questions, or else end
 // the quiz if everything has been answered. 

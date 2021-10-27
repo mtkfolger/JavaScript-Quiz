@@ -52,11 +52,37 @@ var quizQuestions = [
  ]
 
  // Global variables to match HTML elements
+ var questionsElement = document.getElementById("questions");
+ var timerElement = document.getElementById("time");
+ var choicesElement= document.getElementById("choices");
+ var submitBtn = document.getElementById("submit");
+ var startBtnElement = document.getElementById("start");
+ var initialsElement = document.getElementById("initials");
+ var startScreenEl = document.getElementById("start-screen");
+ var questionTitleElement = document.getElementById("question-title");
+ var endScreen = document.querySelector("#end-screen");
+ var timeInterval;
+ var questionsIndex = 0;
+ var displayTime = quizQuestions.length*10;
 
  // Defined time interval to keep quiz state
+function interval(){
+  displayTime = displayTime - 1;
+  timerElement.textContent = displayTime;
+  if (displayTime = 0){
+    console.log("Quiz is now over!")
+
+    //fire the endQuiz function here
+  }
+}
+
 
 //Start quiz function that starts the timer, hides the start screen
 // & unhides the questions. 
+function quizStart(){
+  timeInterval = setInterval(interval,1000)
+}
+
 
 //Function to cycle through the questions
 

@@ -86,10 +86,30 @@ function quizStart(){
   startScreenEl.setAttribute("class","hide");
   questionsElement.removeAttribute("class");
   //cycle questions with the display questions function
+  cycleQuestions();
 }
 
+//Function to cycle through the questions, starting by grabbing first question in order
+function cycleQuestions(){
+  var questions = quizQuestions[
+    questionsIndex
+  ]
+  questionTitleElement.textContent= questions.title;
 
-//Function to cycle through the questions
+  questions.choices.forEach(choice => {
+    var answerBtn = document.createElement("button")
+
+    answerBtn.setAttribute("value", choice)
+    answerBtn.setAttribute("class", "choice")
+    answerBtn.setAttribute("id","answerChoice")
+    answerBtn.textContent = choice;
+    
+    // call the function to check whether the answer was right or wrong
+
+    choicesElement.appendChild(answerBtn);
+  })
+}
+
 
 //Function to check if the answer is right or wrong and notify when wrong
 

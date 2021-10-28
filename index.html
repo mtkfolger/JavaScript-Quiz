@@ -13,10 +13,14 @@ Bootstrap stylesheet, and links to the google fonts I choose to utilize for the 
   <div class="timer">Time: <span id="time">60</span></div>
   <div class="wrapper">
     <div id="start-screen" class="start">
-      <h1>Super Cool Coding Trivia</h1>
+      <h1>The JavaScript Quiz</h1>
       <p>
-        Try to answer the following questions within the time
-        limit. Keep in mind that incorrect answers will be result in loss of time!
+        Answer the following questions within the time
+        limit. Keep in mind that incorrect answers will result in a 10 second time deduction! If the timer hits 0 seconds before you've answered all 10 questions,
+        you will receive a score of 0, and the test will end.
+        <br>
+        <br>
+        Can you get through all 10 questions? 
       </p>
       <button id="start">Start Quiz</button>
     </div>
@@ -32,6 +36,15 @@ Bootstrap stylesheet, and links to the google fonts I choose to utilize for the 
         <button id="submit">Submit</button>
       </p>
     </div>
+
+    <body>
+      <div id="highscores" class="wrapper, hide">
+        <h1>Highscores</h1>
+        <ol id="highscores"></ol>
+  
+        <a href="index.html"><button>Restart Quiz</button></a>
+        <button id="clear">Clear Highscores</button>
+      </div>
 
   </main>
         <!-- link to JS file-->

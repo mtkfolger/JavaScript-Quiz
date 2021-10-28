@@ -55,11 +55,13 @@ var quizQuestions = [
 var displayTime = 60;
 var timeInterval;
 var questionsIndex = 0;
+var highscoreElement = document.getElementById("highscores");
 var questionsElement = document.getElementById("questions");
 var timerElement = document.getElementById("time");
 var choicesElement = document.getElementById("choices");
 var submitBtn = document.getElementById("submit");
 var startBtnElement = document.getElementById("start");
+var restartBtnElement = document.getElementById("restart");
 var initialsElement = document.getElementById("initials");
 var startScreenEl = document.getElementById("start-screen");
 var questionTitleElement = document.getElementById("question-title");
@@ -123,7 +125,8 @@ function validateAnswer() {
   
     console.log("True")
   };
-
+//Cycle a new question if still haven't answered all questions, or else end
+// the quiz if everything has been answered. 
   questionsIndex++;
   if (questionsIndex === quizQuestions.length) {
     console.log("Quiz over");
@@ -134,24 +137,77 @@ function validateAnswer() {
     cycleQuestions();
   };
 }
-
+// End quiz function, clear the time interval to stop the timer.
 function quizEnd(){
   clearInterval(timeInterval);
   console.log("This quiz is over!");
+//Hide questions page, unhide end quiz page. 
   questionsElement.setAttribute("class", "hide");
   endScreen.removeAttribute("class");
   // show user's final score
   var finalScoreEl = document.getElementById("final-score");
   finalScoreEl.textContent = displayTime;
 };
-//Cycle a new question if still haven't answered all questions, or else end
-// the quiz if everything has been answered. 
-
-// End quiz function, clear the time interval to stop the timer. 
-
-//Hide questions page, unhide end quiz page. 
-
-//End quiz page to take user input to gather users initials and score for leaderboard
 
 //click event on start button to begin quiz/timer
 startBtnElement.onclick = quizStart;
+
+//End quiz page to take user input to gather users initials and score for leaderboard
+function saveHighscore() {
+  endScreen.setAttribute("class", "hide");
+  highscoreElement.removeAttribute("class");
+  
+  // get value of input box
+  var initials = initialsElement.value.trim();
+ 
+  // get saved scores from localstorage, or if not any, set to empty array
+    var highscores =
+      JSON.parse(window.localStorage.getItem("highscores")) || [];
+
+    // format new score object for current user
+    var newScore = {
+      score: timeDisplay,
+      initials: initials
+    };
+
+    // save to localstorage
+    highscores.push(newScore);
+    window.localStorage.setItem("highscores", JSON.stringify(highscores));
+}
+
+
+// user clicks button to submit initials
+submitBtn.onclick = saveHighscore;
+
+// user clicks button to start quiz
+startBtnElement.onclick = startQuiz;
+
+function printHighscores() {
+  // either get scores from localstorage or set to empty array
+  var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+
+  // sort highscores by score property in descending order
+  highscores.sort(function(a, b) {
+    return b.score - a.score;
+  });
+
+  highscores.forEach(function(score) {
+    // create li tag for each high score
+    var liTag = document.createElement("li");
+    liTag.textContent = score.initials + " - " + score.score;
+
+    // display on page
+    var olEl = document.getElementById("highscores");
+    olEl.appendChild(liTag);
+  });
+}
+
+function clearHighscores() {
+  window.localStorage.removeItem("highscores");
+  window.location.reload();
+}
+
+document.getElementById("clear").onclick = clearHighscores;
+
+// run function when page loads
+printHighscores();

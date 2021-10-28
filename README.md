@@ -1,7 +1,8 @@
 # Code Quiz
 
 **Screenshot of Deployed Application**
-> 
+> ![JSCodeQuiz_Snip](https://user-images.githubusercontent.com/84151997/139288052-0d03158a-3c6f-449d-b59f-d77a0d5661b8.JPG)
+
 
 **Link to Deployed Application**
 > To view the application <a href="https://mtkfolger.github.io/JavaScript-Quiz/index.html">click here!</a>

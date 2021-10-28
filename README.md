@@ -1,7 +1,51 @@
-JavaScript Quiz
+# Code Quiz
 
-This is a timed quiz to test a subjects knowledge on JavaScript. 
+**Screenshot of Deployed Application**
+> 
 
-Screenshot: ![snip11](https://user-images.githubusercontent.com/84151997/123030749-437efd00-d3b1-11eb-9c9a-0431b1cf7970.JPG)
+**Link to Deployed Application**
+> To view the application <a href="https://mtkfolger.github.io/JavaScript-Quiz/index.html">click here!</a>
 
-Link to deployed application:https://mtkfolger.github.io/JavaScript-Quiz/
+**Description**
+>This applicaiton will test users on their knowledge of JavaScript principles.
+
+**Table of Contents** 
+>[Installation](#Installation)
+>
+>[Usage](#Usage)
+>
+>[License](#License)
+>
+>[Contribution Guidelines](#Contribution)
+>
+>[Tests](#Tests)
+>
+>[Questions](#Questions)
+
+**Installation Instructions** <a name="Installation"></a>
+>Nothing needs to be installed to run this application.
+
+**Usage** <a name="Usage"></a>
+>This application is perfect for those trying to hone their JavaScript skills. 
+
+**License** <a name="License"></a>
+>This project is convered under the MIT License <br><br>![Apache Logo](https://badgen.net/badge/Licencse/MIT/red?icon=github) License.
+
+
+**Contribution Guidelines** <a name="Contribution"></a>
+>To contribute to this project, please see the contact information below. 
+
+**Tests** <a name="Tests"></a>
+>No tests were ran on this application. 
+
+**Questions** <a name="Questions"></a>
+>Have questions? Feel free to reach out to me, by visiting me on GitHub at:
+>
+>https://github.com/mtkfolger
+>
+>or by contacting me via e-mail, at:
+>
+>mtkfolger@gmail.com
+
+---
+*This readme template is © Michael Folger - 2021*
